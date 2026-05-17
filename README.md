@@ -55,29 +55,3 @@ The system uses a **State Machine** to handle security levels:
 * **RGB LED** (Visual feedback: Blue for "Ready", Green for "Open", Red for "Error").
 
 ---
-
-## 📡 Communication Protocol (UDP)
-
-The Python script sends tiny, fast "State Characters" to the Arduino via WiFi:
-
-* `'N'`: No face (Idle).
-* `'F'`: Face detected (Waiting for gestures).
-* `'C'`: Correct sequence (Unlock!).
-* `'W'`: Wrong gesture (Reset sequence).
-* `'E'`: Connection error.
-
----
-
-## 🧠 Why this is cool
-
-* **Contactless:** No need to touch a keypad or a fingerprint scanner (hygienic and futuristic).
-* **Secure:** Even if someone sees your hand gestures, they can't trigger the lock without a human face being physically present.
-* **Fast:** Uses **UDP sockets** for near-zero lag between the camera and the motor.
-
----
-
-GitHub profilini daha da canlandırmak için, el hareketlerinin sırasını değiştirmeyi veya "yanlış hareket" yapıldığında Arduino'nun bir buzzer (hoparlör) ile ses çıkarmasını eklemeyi düşündün mü?
-
-```
-
-```
