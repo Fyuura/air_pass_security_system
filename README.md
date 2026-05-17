@@ -4,7 +4,7 @@ A contactless 2-Factor Authentication (2FA) door lock. To enter, the system must
 
 ---
 
-## 🛠 Quick Setup
+## Quick Setup
 
 ### 1. Arduino (The Lock)
 
@@ -28,7 +28,7 @@ pip install mediapipe opencv-python
 
 ---
 
-## 📝 How It Works
+## How It Works
 
 The system uses a **State Machine** to handle security levels:
 
@@ -41,7 +41,7 @@ The system uses a **State Machine** to handle security levels:
 
 ---
 
-## 🧱 Hardware Needed
+## Hardware Needed
 
 * **Raspberry Pi 4/5** (or a laptop) + USB Webcam.
 * **Arduino Uno R4 WiFi** (for wireless communication).
