@@ -1,2 +1,83 @@
-# air_pass_security_system
-A contactless 2-Factor Authentication (2FA) door lock. To enter, the system must first detect your face, then you must perform a secret sequence of hand gestures in the air.
+# Biometric Air Pass Security System
+This version is designed to be "plug-and-play" for anyone visiting your repository. It focuses on getting the project running immediately while keeping the technical details easy to digest.
+
+---
+
+# Air-Pass: Biometric Gesture Security System 🖐️🔓
+
+A contactless 2-Factor Authentication (2FA) door lock. To enter, the system must first **detect your face**, then you must perform a **secret sequence of hand gestures** in the air.
+
+---
+
+## 🛠 Quick Setup
+
+### 1. Arduino (The Lock)
+
+* Open the Arduino sketch.
+* Create a `secrets.h` file and add your WiFi `SSID` and `PASSWORD`.
+* Upload the code to your **Arduino Uno R4 WiFi** (or similar).
+* Open the Serial Monitor to find the **IP Address** of your Arduino.
+
+### 2. Python (The Brain)
+
+* Install the required libraries:
+```bash
+pip install mediapipe opencv-python
+
+```
+
+
+* Download the MediaPipe models (`blaze_face_short_range.tflite` and `gesture_recognizer.task`) and place them in the project folder.
+* In the Python script, update the `UDP_IP` variable with the Arduino IP you found in Step 1.
+* Run the script: `python main.py`.
+
+---
+
+## 📝 How It Works
+
+The system uses a **State Machine** to handle security levels:
+
+1. **Face Check:** The camera looks for a human face. If no face is present, it ignores all hand gestures.
+2. **Gesture Passcode:** Once a face is detected, you must perform the sequence:
+* **Open Palm** ➔ **Closed Fist** ➔ **Victory (Peace)** ➔ **Thumb Up**
+
+
+3. **Unlock:** If the sequence is correct, the Arduino moves the **Servo Motor** to unlock the door and displays "ACCESS GRANTED" on the **OLED screen**.
+
+---
+
+## 🧱 Hardware Needed
+
+* **Raspberry Pi 4/5** (or a laptop) + USB Webcam.
+* **Arduino Uno R4 WiFi** (for wireless communication).
+* **SG90 Servo Motor** (The physical latch).
+* **SSD1306 OLED Display** (To show status).
+* **RGB LED** (Visual feedback: Blue for "Ready", Green for "Open", Red for "Error").
+
+---
+
+## 📡 Communication Protocol (UDP)
+
+The Python script sends tiny, fast "State Characters" to the Arduino via WiFi:
+
+* `'N'`: No face (Idle).
+* `'F'`: Face detected (Waiting for gestures).
+* `'C'`: Correct sequence (Unlock!).
+* `'W'`: Wrong gesture (Reset sequence).
+* `'E'`: Connection error.
+
+---
+
+## 🧠 Why this is cool
+
+* **Contactless:** No need to touch a keypad or a fingerprint scanner (hygienic and futuristic).
+* **Secure:** Even if someone sees your hand gestures, they can't trigger the lock without a human face being physically present.
+* **Fast:** Uses **UDP sockets** for near-zero lag between the camera and the motor.
+
+---
+
+GitHub profilini daha da canlandırmak için, el hareketlerinin sırasını değiştirmeyi veya "yanlış hareket" yapıldığında Arduino'nun bir buzzer (hoparlör) ile ses çıkarmasını eklemeyi düşündün mü?
+
+```
+
+```
