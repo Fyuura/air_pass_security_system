@@ -21,8 +21,6 @@ pip install mediapipe opencv-python
 
 ```
 
-
-* Download the MediaPipe models (`blaze_face_short_range.tflite` and `gesture_recognizer.task`) and place them in the project folder.
 * In the Python script, update the `UDP_IP` variable with the Arduino IP you found in Step 1.
 * Run the script: `python main.py`.
 
