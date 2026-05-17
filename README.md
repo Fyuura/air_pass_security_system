@@ -1,9 +1,4 @@
 # Biometric Air Pass Security System
-This version is designed to be "plug-and-play" for anyone visiting your repository. It focuses on getting the project running immediately while keeping the technical details easy to digest.
-
----
-
-# Air-Pass: Biometric Gesture Security System 🖐️🔓
 
 A contactless 2-Factor Authentication (2FA) door lock. To enter, the system must first **detect your face**, then you must perform a **secret sequence of hand gestures** in the air.
 
