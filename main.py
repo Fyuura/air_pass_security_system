@@ -6,7 +6,7 @@ import time
 import socket
 
 # WiFi UDP connection 
-UDP_IP = "10.246.38.212"
+UDP_IP = "IP_ADDRESS" # Replace with the IP address of the receiving device
 UDP_PORT = 4210
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
