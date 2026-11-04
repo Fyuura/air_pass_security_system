@@ -48,3 +48,5 @@ The system uses a **State Machine** to handle security levels:
 * **RGB LED** (Visual feedback: Blue for "Ready", Green for "Open", Red for "Error").
 
 ---
+contributors
+Enes Malik Dincer
